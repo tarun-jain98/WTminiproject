@@ -1,0 +1,66 @@
+body{
+	margin:5%;
+
+background:#eeeeee;
+}
+
+.h2, h2{
+	color: white;
+}
+
+.h4, h4{
+	color: blue;
+	text-decoration: underline;
+}
+
+.iop{
+	margin-top: 50px !important;
+}
+
+.poi{
+	margin-top: 60px !important;
+	padding: 0.5%;
+}
+.poi1{
+	margin-left:  60px !important;
+	margin-right:  60px !important;
+	padding: 1.5%;
+}
+
+.dis{
+	margin: 1.4%;
+}
+
+
+.dis1{
+	margin-top: 1.6%;
+}
+
+.color1{
+	color: #233656;
+	font-size:30px;
+}
+.color2{
+	color: blue;
+	font-size:24px;
+}
+
+.text12{
+	height: 150px;
+}
+
+.po{
+	padding: 1%;
+}
+
+.sp{
+	color: #F09819;
+	font-size: 20px;
+}
+#inputEmployeeIdNo
+{
+	font-size: 20px;
+}
+th{
+	font-size: 18px
+}
