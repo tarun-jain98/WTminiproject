@@ -1,5 +1,5 @@
 <?php 
-require_once('config.php');
+require ('config.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,10 +16,10 @@ require_once('config.php');
 				$stmtinsert = $db->prepare($sql);
 				$result = $stmtinsert->execute([$name,$email]);
 				if($result){
-					echo 'success'
+					echo 'success';
 				}
 				else{
-					echo 'there were errors'
+					echo 'there were errors';
 				}
 			}
 		?>
