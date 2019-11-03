@@ -7,13 +7,19 @@ session_start();
       if(isset($_POST['submit'])){
         $teacher = $_POST['teacher'];
         $activity = $_POST['activity'];
+        $subject = $_POST['s'];
 
-        $sql = "SELECT form_id FROM teacherform WHERE activity_type='$activity' and user_id in(SELECT username FROM user WHERE name='$teacher')";
+        $sql = "SELECT form_id FROM teacherform WHERE activity_type='$activity' and subject ='$subject'and user_id in(SELECT username FROM user WHERE name='$teacher')";
         $result = mysqli_query($conn, $sql);
         if($result){
           $row=mysqli_fetch_array($result);
+          if (empty($row[0])){
+            header('Location:studentfirst.php');
+          }
+          else{
           $_SESSION["form_id"]=$row['form_id'];
           header('Location:studentform.php');
+        }
         }
         else{
           header('Location:login.php');
@@ -49,7 +55,7 @@ session_start();
   <div class="form-row">
 	<div class="form-group  col-md-4">
 		<label for="s"><h2>Subject:</h2></label>
-  		<select class="form-control" id="s">
+  		<select class="form-control" id="s" name='s'>
     	<option>Phy</option>
     	<option>Chem</option>
     	<option>Math</option>

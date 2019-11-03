@@ -7,12 +7,47 @@ session_start();
 <!DOCTYPE html>
 <?php 
       if(isset($_POST['submit'])){
-        $activity = $_POST['activity'];
-        $date = $_POST['date'];
-        $duration = $_POST['duration'];
-        $semester = $_POST['semester'];
-        $section = $_POST['section'];
-        $attendee = $_POST['attendee'];
+        if (empty($_POST['activity'])) {
+          header('Location:teacherform.php');
+        } else {
+          $activity = $_POST['activity'];
+        }
+        if (empty($_POST['duration'])) {
+          header('Location:teacherform.php');
+        } else {
+          $duration = $_POST['duration'];
+        }
+
+        if (empty($_POST['date'])) {
+          header('Location:teacherform.php');
+        } else {
+          $date = $_POST['date'];
+        }
+
+        if (empty($_POST['attendee'])) {
+          header('Location:teacherform.php');
+        } else {
+          $attendee = $_POST['attendee'];
+        }
+
+        if (empty($_POST['section'])) {
+          header('Location:teacherform.php');
+        } else {
+          $section = $_POST['section'];
+        }
+
+        if (empty($_POST['semester'])) {
+          header('Location:teacherform.php');
+        } else {
+          $semester = $_POST['semester'];
+        }
+        
+        if (empty($_POST['subject'])) {
+          header('Location:teacherform.php');
+        } else {
+          $subject = $_POST['subject'];
+        }
+        
         $q_1 = $_POST['q_1'];
         $p_1 = $_POST['p_1'];
         $c_1 = $_POST['c_1'];
@@ -31,7 +66,7 @@ session_start();
 
         $user = $_SESSION["username"];
 
-        $sql = "INSERT INTO teacherform (user_id,activity_type,date,attendees,duration,semester,section,q_1,p_1,c_1,q_2,p_2,c_2,q_3,p_3,c_3,q_4,p_4,c_4,q_5,p_5,c_5) VALUES('$user','$activity','$date','$attendee','$duration','$semester','$section','$q_1','$p_1','$c_1','$q_2','$p_2','$c_2','$q_3','$p_3','$c_3','$q_4','$p_4','$c_4','$q_5','$p_5','$c_5')";
+        $sql = "INSERT INTO teacherform (user_id,activity_type,date,attendees,duration,semester,section,subject,q_1,p_1,c_1,q_2,p_2,c_2,q_3,p_3,c_3,q_4,p_4,c_4,q_5,p_5,c_5) VALUES('$user','$activity','$date','$attendee','$duration','$semester','$section','$subject','$q_1','$p_1','$c_1','$q_2','$p_2','$c_2','$q_3','$p_3','$c_3','$q_4','$p_4','$c_4','$q_5','$p_5','$c_5')";
 
         if(mysqli_query($conn, $sql)){
           CloseCon($conn);
@@ -77,7 +112,7 @@ session_start();
   <div class="form-row">
   <div class="form-group  col-md-4">
     <label for="activity"><h2>Activity Type:</h2></label>
-      <select class="form-control" id="activity" name="activity">
+      <select class="form-control" id="activity" name="activity" required>
       <option></option>
       <option>Tutorial</option>
       <option>Quiz</option>
@@ -88,30 +123,35 @@ session_start();
 
 <div class="form-group  col-md-4">
   <label for="date"><h2>Date:</h2></label>
-  <input type="date" name="date" id="date">
+  <input type="date" name="date" id="date" required>
 </div>
 
 <div class="form-group  col-md-4">
   <label for="noa"><h2>Number of attendee:</h2></label>
-  <input type="text" name="attendee" id="noa">
+  <input type="text" name="attendee" id="noa" required>
 </div>
 
 
 
-<div class="form-group  col-md-4">
+<div class="form-group  col-md-3">
   <label for="duration"><h2>Duration:</h2></label>
-  <input type="text" name="duration" id="duration">
+  <input type="text" name="duration" id="duration" required>
 </div>
 
-<div class="form-group  col-md-4">
+<div class="form-group  col-md-3">
   <label for="semester"><h2>Semester:</h2></label>
-  <input type="text" name="semester" id="semester">
+  <input type="text" name="semester" id="semester" required>
 </div>
 
 
-<div class="form-group  col-md-4">
+<div class="form-group  col-md-3">
   <label for="section"><h2>Section:</h2></label>
-  <input type="text" name="section" id="section">
+  <input type="text" name="section" id="section" required>
+</div>
+
+<div class="form-group  col-md-3">
+  <label for="subject"><h2>Subject:</h2></label>
+  <input type="text" name="subject" id="subject" required>
 </div>
 
 
@@ -119,11 +159,11 @@ session_start();
 <div>
 	<label><h2>Question 1</h2></label>
   <br>
-  <textarea style="width:100%" name="q_1"></textarea>
+  <textarea style="width:100%" name="q_1" required></textarea>
 	<div class="form-row">
   <div class="form-group  col-md-2">
     <label for="p_1"><h2>PO:</h2></label>
-      <select class="form-control" id="p_1" name="p_1">
+      <select class="form-control" id="p_1" name="p_1" required>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -132,7 +172,7 @@ session_start();
   </div>
   <div class="form-group  col-md-2">
       <label for="c_1"><h2>CO:</h2></label>
-        <select class="form-control" id="c_1" name="c_1">
+        <select class="form-control" id="c_1" name="c_1" required>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -143,11 +183,11 @@ session_start();
 
   <label><h2>Question</h2></label>
   <br>
-  <textarea style="width:100%" name="q_2"></textarea>
+  <textarea style="width:100%" name="q_2" required></textarea>
   <div class="form-row">
   <div class="form-group  col-md-2">
     <label for="p_2"><h2>PO:</h2></label>
-      <select class="form-control" id="p_2" name="p_2">
+      <select class="form-control" id="p_2" name="p_2" required>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -156,7 +196,7 @@ session_start();
   </div>
   <div class="form-group  col-md-2">
       <label for="c_2"><h2>CO:</h2></label>
-        <select class="form-control" id="c_2" name="c_2">
+        <select class="form-control" id="c_2" name="c_2" required>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -167,11 +207,11 @@ session_start();
 
   <label><h2>Question</h2></label>
   <br>
-  <textarea style="width:100%" name="q_3"></textarea>
+  <textarea style="width:100%" name="q_3" required></textarea>
   <div class="form-row">
   <div class="form-group  col-md-2">
     <label for="p_3"><h2>PO:</h2></label>
-      <select class="form-control" id="p_3" name="p_3">
+      <select class="form-control" id="p_3" name="p_3" required>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -180,7 +220,7 @@ session_start();
   </div>
   <div class="form-group  col-md-2">
       <label for="c_3"><h2>CO:</h2></label>
-        <select class="form-control" id="c_3" name="c_3">
+        <select class="form-control" id="c_3" name="c_3" required>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -191,11 +231,11 @@ session_start();
 
   <label><h2>Question</h2></label>
   <br>
-  <textarea style="width:100%" name="q_4"></textarea>
+  <textarea style="width:100%" name="q_4" required></textarea>
   <div class="form-row">
   <div class="form-group  col-md-2">
     <label for="p_4"><h2>PO:</h2></label>
-      <select class="form-control" id="p_4" name="p_4">
+      <select class="form-control" id="p_4" name="p_4" required>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -204,7 +244,7 @@ session_start();
   </div>
   <div class="form-group  col-md-2">
       <label for="c_4"><h2>CO:</h2></label>
-        <select class="form-control" id="c_4" name="c_4">
+        <select class="form-control" id="c_4" name="c_4" required>
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -215,11 +255,11 @@ session_start();
 
   <label><h2>Question</h2></label>
   <br>
-  <textarea style="width:100%" name="q_5"></textarea>
+  <textarea style="width:100%" name="q_5" required></textarea>
   <div class="form-row">
   <div class="form-group  col-md-2">
     <label for="p_5"><h2>PO:</h2></label>
-      <select class="form-control" id="p_5" name="p_5">
+      <select class="form-control" id="p_5" name="p_5" required>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -228,7 +268,7 @@ session_start();
   </div>
   <div class="form-group  col-md-2">
       <label for="c_5"><h2>CO:</h2></label>
-        <select class="form-control" id="c_5" name="c_5">
+        <select class="form-control" id="c_5" name="c_5" required>
         <option>1</option>
         <option>2</option>
         <option>3</option>

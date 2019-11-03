@@ -11,7 +11,8 @@ require ('config.php');
       </head>
       <marquee style="padding:5px;color:#212121;" direction = "right">This OBE process is completely anonymous.</marquee>
       <body style="background:#c3d1f8">
-
+      	<div class="container">
+      		
         <div class="jumbotron" style="background:white">
 
         <div class="container-fluid">
@@ -73,5 +74,6 @@ require ('config.php');
 		}
 	}
  ?>
+</div>
 </body>
 </html>

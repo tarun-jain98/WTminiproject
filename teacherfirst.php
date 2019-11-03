@@ -9,7 +9,7 @@
   <body style="background:#c3d1f8">
 
      <marquee style="padding:5px;color:#212121;" direction = "right">This OBE process is completely anonymous.</marquee>
-
+     <div class="container">
         <div class="jumbotron" style="background:white">
 
         <div class="container-fluid">
@@ -26,11 +26,11 @@
 
 <div class="login-page"></div>
 <div style="margin-top:-6%;" class="form">
-  <a href="#" class="btn btn-primary"><b>View last activities</b></a>
+  <a href="activities.php" class="btn btn-primary"><b>View last activities</b></a>
   <a href="teacherform.php" class="btn btn-primary"><b>New Activity</b></a>
 
 </div>
-
+</div>
 
   </body>
 </html>

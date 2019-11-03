@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2019 at 11:47 AM
+-- Generation Time: Nov 03, 2019 at 05:26 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -39,13 +39,6 @@ CREATE TABLE `studentresponse` (
   `a_5` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `studentresponse`
---
-
-INSERT INTO `studentresponse` (`f_id`, `tform_id`, `user_id`, `a_1`, `a_2`, `a_3`, `a_4`, `a_5`) VALUES
-(1, 9, 'tj', '2', '2', '3', '4', '4');
-
 -- --------------------------------------------------------
 
 --
@@ -61,6 +54,7 @@ CREATE TABLE `teacherform` (
   `duration` varchar(10) NOT NULL,
   `semester` varchar(2) NOT NULL,
   `section` varchar(2) NOT NULL,
+  `subject` varchar(100) NOT NULL,
   `q_1` varchar(500) NOT NULL,
   `p_1` varchar(2) NOT NULL,
   `c_1` varchar(2) NOT NULL,
@@ -77,14 +71,6 @@ CREATE TABLE `teacherform` (
   `p_5` varchar(2) NOT NULL,
   `c_5` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `teacherform`
---
-
-INSERT INTO `teacherform` (`form_id`, `user_id`, `activity_type`, `date`, `attendees`, `duration`, `semester`, `section`, `q_1`, `p_1`, `c_1`, `q_2`, `p_2`, `c_2`, `q_3`, `p_3`, `c_3`, `q_4`, `p_4`, `c_4`, `q_5`, `p_5`, `c_5`) VALUES
-(9, 'rj', 'Seminar', '2019-11-03', '5', '4', '5', 'c', '??', '2', '2', '??', '2', '2', '?', '1', '1', '??', '1', '1', '??', '2', '2'),
-(11, 'rj', 'Tutorial', '2019-11-03', '5', '4', '5', 'c', '', '1', '1', '', '1', '1', '', '1', '1', '', '1', '1', '', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -140,12 +126,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `studentresponse`
 --
 ALTER TABLE `studentresponse`
-  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `f_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `teacherform`
 --
 ALTER TABLE `teacherform`
-  MODIFY `form_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `form_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --

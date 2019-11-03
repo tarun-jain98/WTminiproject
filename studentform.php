@@ -10,11 +10,36 @@ $row=mysqli_fetch_array($result);
 <!DOCTYPE html>
 <?php 
       if(isset($_POST['submit'])){
-        $optradio1 = $_POST['optradio1'];
-        $optradio2 = $_POST['optradio2'];
-        $optradio3 = $_POST['optradio3'];
-        $optradio4 = $_POST['optradio4'];
-        $optradio5 = $_POST['optradio5'];
+        if (empty($_POST['optradio1'])) {
+          header('Location:studentform.php');
+        } else {
+          $optradio1 = $_POST['optradio1'];
+        }
+
+        if (empty($_POST['optradio2'])) {
+          header('Location:studentform.php');
+        } else {
+          $optradio1 = $_POST['optradio2'];
+        }
+
+        if (empty($_POST['optradio3'])) {
+          header('Location:studentform.php');
+        } else {
+          $optradio1 = $_POST['optradio3'];
+        }
+
+        if (empty($_POST['optradio4'])) {
+          header('Location:studentform.php');
+        } else {
+          $optradio1 = $_POST['optradio4'];
+        }
+
+        if (empty($_POST['optradio5'])) {
+          header('Location:studentform.php');
+        } else {
+          $optradio1 = $_POST['optradio5'];
+        }
+        
         $user = $_SESSION["username"];
         $sql = "INSERT INTO studentresponse (tform_id, user_id, a_1, a_2, a_3, a_4, a_5) VALUES('$id','$user','$optradio1','$optradio2','$optradio3','$optradio4','$optradio5')";
         if(mysqli_query($conn, $sql)){
