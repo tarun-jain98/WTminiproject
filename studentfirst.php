@@ -1,7 +1,25 @@
 <?php
 require ('config.php');
+session_start();
 ?>
 <!DOCTYPE html>
+<?php 
+      if(isset($_POST['submit'])){
+        $teacher = $_POST['teacher'];
+        $activity = $_POST['activity'];
+
+        $sql = "SELECT form_id FROM teacherform WHERE activity_type='$activity' and user_id in(SELECT username FROM user WHERE name='$teacher')";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+          $row=mysqli_fetch_array($result);
+          $_SESSION["form_id"]=$row['form_id'];
+          header('Location:studentform.php');
+        }
+        else{
+          header('Location:login.php');
+        }
+      }
+?>
 <html>
  <head>
   <Title>OBE</title>
@@ -32,54 +50,37 @@ require ('config.php');
 	<div class="form-group  col-md-4">
 		<label for="s"><h2>Subject:</h2></label>
   		<select class="form-control" id="s">
-    	<option>1</option>
-    	<option>2</option>
-    	<option>3</option>
-    	<option>4</option>
+    	<option>Phy</option>
+    	<option>Chem</option>
+    	<option>Math</option>
+    	<option>Bio</option>
   		</select>
 	</div>
 
 	<div class=" form-group col-md-4">
 		<label for="se"><h2>Faculty:</h2></label>
   		<select class="form-control" id="se" name="teacher">
-    	<option>1</option>
-    	<option>2</option>
-    	<option>3</option>
-    	<option>4</option>
+    	<option>Raj</option>
+    	<option>Rahul</option>
+    	<option>Ravi</option>
+    	<option>Ram</option>
   		</select>
 	</div>
   	
   	<div class="form-group  col-md-4">
 		<label for="sel"><h2>Activity:</h2></label>
   		<select class="form-control" id="sel" name="activity">
-    	<option>1</option>
-    	<option>2</option>
-    	<option>3</option>
-    	<option>4</option>
+    	<option>Seminar</option>
+    	<option>Tutorial</option>
+    	<option>Openbook</option>
+    	<option>Something</option>
   		</select>
 	</div>       
 </div>
 
-<input type="submit" style="margin-left: 50%; text-align: center;" class="btn-danger" value="Submit">
+<input type="submit" style="margin-left: 50%; text-align: center;" class="btn btn-danger btn-lg" name="submit">
 </form>
-<?php 
-      if(isset($_POST['submit'])){
-        $teacher = $_POST['teacher'];
-        $activity = $_POST['activity'];
 
-        $sql = "SELECT form_id FROM teacherform WHERE activity_type=='$activity' and user_id in(SELECT username FROM user WHERE name=='$teacher')";
-        $stmtinsert = $db->prepare($sql);
-        $result = $stmtinsert->execute();
-        if($result){
-          session_start();
-          $_SESSION["form_id"]=$result;
-          header('Location:studentform.php');
-        }
-        else{
-          header('Location:login.php');
-        }
-      }
-?>
 </body>
 </html>
 

@@ -53,8 +53,10 @@ require ('config.php');
 			while($row=mysqli_fetch_array($result))
 			{
 				echo $row['designation'];
+				$_SESSION["name"]=$row['name'];
 				if ($row['designation']=="student")
-				{
+				{   
+
 					header('Location:studentfirst.php');
 				}
 				else if ($row['designation']=="teacher")

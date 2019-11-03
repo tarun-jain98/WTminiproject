@@ -26,18 +26,10 @@
 
 <div class="login-page"></div>
 <div style="margin-top:-6%;" class="form">
-<div class="container">
-  <div class="login-form">
-
-<div class="btn-group-vertical">
-  <button type="button" class="btn btn-primary">View last activities</button>
-  <button type="button" class="btn btn-primary">New Activity</button>
-</div>
+  <a href="#" class="btn btn-primary"><b>View last activities</b></a>
+  <a href="teacherform.php" class="btn btn-primary"><b>New Activity</b></a>
 
 </div>
-</div>
-</div>
-
 
 
   </body>
