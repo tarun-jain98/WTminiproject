@@ -110,7 +110,7 @@ session_start();
 
 <form method="post">
   <div class="form-row">
-  <div class="form-group  col-md-4">
+  <div class="form-group  col-md-6">
     <label for="activity"><h2>Activity Type:</h2></label>
       <select class="form-control" id="activity" name="activity" required>
       <option></option>
@@ -121,37 +121,43 @@ session_start();
       </select>
   </div>
 
-<div class="form-group  col-md-4">
+<div class="form-group  col-md-6">
+    <label for="subject"><h2>Subject:</h2></label>
+      <select class="form-control" id="subject" name="subject" required>
+      <option></option>
+      <option>OS</option>
+      <option>CN</option>
+      <option>DBMS</option>
+      <option>ACA</option>
+      </select>
+  </div>
+
+
+<div class="form-group  col-md-2">
   <label for="date"><h2>Date:</h2></label>
+  <br>
   <input type="date" name="date" id="date" required>
 </div>
 
-<div class="form-group  col-md-4">
-  <label for="noa"><h2>Number of attendee:</h2></label>
-  <input type="text" name="attendee" id="noa" required>
-</div>
-
-
-
-<div class="form-group  col-md-3">
+<div class="form-group  col-md-2">
   <label for="duration"><h2>Duration:</h2></label>
   <input type="text" name="duration" id="duration" required>
 </div>
 
-<div class="form-group  col-md-3">
+<div class="form-group  col-md-2">
   <label for="semester"><h2>Semester:</h2></label>
   <input type="text" name="semester" id="semester" required>
 </div>
 
 
-<div class="form-group  col-md-3">
+<div class="form-group  col-md-2">
   <label for="section"><h2>Section:</h2></label>
   <input type="text" name="section" id="section" required>
 </div>
 
-<div class="form-group  col-md-3">
-  <label for="subject"><h2>Subject:</h2></label>
-  <input type="text" name="subject" id="subject" required>
+<div class="form-group  col-md-4">
+  <label for="noa"><h2>Number of attendee:</h2></label>
+  <input type="text" name="attendee" id="noa" required>
 </div>
 
 

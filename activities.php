@@ -46,6 +46,7 @@ $result = mysqli_query($conn,$sql);
       <th>Section</th>
       <th>Attendees</th>
       <th>Responses</th>
+      <th>Link</th>
   </tr></thead>
   <tbody>
       <?php 
@@ -64,6 +65,7 @@ $result = mysqli_query($conn,$sql);
         $res = mysqli_query($conn,$sql);
         $r=mysqli_fetch_array($res);
         echo $r[0];?></td>
+        <td><?php $a = $row["form_id"];echo '<a href="chart.php?id='.$a.'">Link</a>';?></td>
         
       </tr>
  

@@ -19,25 +19,25 @@ $row=mysqli_fetch_array($result);
         if (empty($_POST['optradio2'])) {
           header('Location:studentform.php');
         } else {
-          $optradio1 = $_POST['optradio2'];
+          $optradio2 = $_POST['optradio2'];
         }
 
         if (empty($_POST['optradio3'])) {
           header('Location:studentform.php');
         } else {
-          $optradio1 = $_POST['optradio3'];
+          $optradio3 = $_POST['optradio3'];
         }
 
         if (empty($_POST['optradio4'])) {
           header('Location:studentform.php');
         } else {
-          $optradio1 = $_POST['optradio4'];
+          $optradio4 = $_POST['optradio4'];
         }
 
         if (empty($_POST['optradio5'])) {
           header('Location:studentform.php');
         } else {
-          $optradio1 = $_POST['optradio5'];
+          $optradio5 = $_POST['optradio5'];
         }
         
         $user = $_SESSION["username"];

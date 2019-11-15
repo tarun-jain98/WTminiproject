@@ -17,6 +17,7 @@ session_start();
             header('Location:studentfirst.php');
           }
           else{
+          // $sql1 = "SELECT * FROM studentresponse WHERE tform_id='$row[0]'' and user_id=''"
           $_SESSION["form_id"]=$row['form_id'];
           header('Location:studentform.php');
         }
@@ -56,10 +57,10 @@ session_start();
 	<div class="form-group  col-md-4">
 		<label for="s"><h2>Subject:</h2></label>
   		<select class="form-control" id="s" name='s'>
-    	<option>Phy</option>
-    	<option>Chem</option>
-    	<option>Math</option>
-    	<option>Bio</option>
+    	<option>CN</option>
+    	<option>OS</option>
+    	<option>DBMS</option>
+    	<option>ACA</option>
   		</select>
 	</div>
 
@@ -67,9 +68,9 @@ session_start();
 		<label for="se"><h2>Faculty:</h2></label>
   		<select class="form-control" id="se" name="teacher">
     	<option>Raj</option>
-    	<option>Rahul</option>
-    	<option>Ravi</option>
-    	<option>Ram</option>
+    	<option>Shankara</option>
+    	<option>Vinay</option>
+    	<option>Cuckreja</option>
   		</select>
 	</div>
   	
@@ -79,7 +80,7 @@ session_start();
     	<option>Seminar</option>
     	<option>Tutorial</option>
     	<option>Openbook</option>
-    	<option>Something</option>
+    	<option>Quiz</option>
   		</select>
 	</div>       
 </div>
