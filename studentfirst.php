@@ -14,12 +14,13 @@ session_start();
         if($result){
           $row=mysqli_fetch_array($result);
           if (empty($row[0])){
-            header('Location:studentfirst.php');
+            $_SESSION["form_id"]=$row['form_id'];
+          header('Location:studentform.php');
+            
           }
           else{
           // $sql1 = "SELECT * FROM studentresponse WHERE tform_id='$row[0]'' and user_id=''"
-          $_SESSION["form_id"]=$row['form_id'];
-          header('Location:studentform.php');
+          header('Location:studentfirst.php');
         }
         }
         else{

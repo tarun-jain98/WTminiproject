@@ -3,7 +3,7 @@
  {    
       $output = '';    
       $conn = new mysqli("localhost", "root", "","OBE") or die("Connect failed: %s\n". $conn -> error);    
-      $sql = "SELECT * FROM teacherform";    
+      $sql = "SELECT * FROM teacherform order by user_id";    
       $result = mysqli_query($conn, $sql); 
       
            
