@@ -13,14 +13,14 @@ require_once('config.php');
 			$stmtinsert = $db->prepare($sql);
 			$result = $stmtinsert->execute();
 			if($result){
-				echo 'success'
+				echo 'success';
 				while($row=mysqli_fetch_array($result))
 				{
 					echo $row['fname'];
 				}
 			}
 			else{
-				echo 'there were errors'
+				echo 'there were errors';
 			}
 		
 		?>

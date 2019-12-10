@@ -60,10 +60,16 @@ require ('config.php');
 
 					header('Location:studentfirst.php');
 				}
+				else if ($row['designation']=="adm")
+				{	
+					echo "hello";
+					header('Location:report.php');
+				}
 				else if ($row['designation']=="teacher")
 				{
 					header('Location:teacherfirst.php');
 				}
+				
 
 			}
 
